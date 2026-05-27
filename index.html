@@ -609,6 +609,45 @@
       .hero-stats { gap: 1.5rem; }
       .hero-stat-num { font-size: 2rem; }
     }
+
+    /* ── PHOTO ── */
+    .hero-photo-wrap {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+    }
+
+    .hero-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid rgba(124,58,237,0.5);
+      box-shadow: 0 0 0 6px rgba(124,58,237,0.1), 0 0 40px rgba(124,58,237,0.2);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-photo-badge {
+      position: absolute;
+      bottom: 8px; right: 8px;
+      background: var(--lime);
+      color: #000;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      margin-bottom: 2rem;
+    }
   </style>
 </head>
 <body>
@@ -629,12 +668,19 @@
   <section class="hero" id="inicio">
     <div class="hero-bg"></div>
 
-    <div class="hero-tag">Disponível para oportunidades</div>
-
-    <h1 class="hero-name">
+    <div class="hero-top">
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="https://raw.githubusercontent.com/lucianasantori842-art/portfolio-lucianatais-neves/main/assets/foto-perfil.jpg" alt="Luciana Tais Neves" />
+        <span class="hero-photo-badge">● Disponível</span>
+      </div>
+      <div>
+        <div class="hero-tag">Gestora de Projetos Júnior</div>
+        <h1 class="hero-name" style="font-size:clamp(2.5rem,7vw,6rem);">
       Luciana<br>
       <span class="line2">Tais <span class="highlight">Neves</span></span>
     </h1>
+      </div>
+    </div>
 
     <div class="hero-bottom">
       <div>

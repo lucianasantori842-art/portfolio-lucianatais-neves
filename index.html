@@ -4,29 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luciana Tais Neves — Gestora de Projetos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --cream: #f5f0e8;
-      --cream2: #ede7d9;
-      --navy: #0f1b2d;
-      --navy2: #1a2e47;
-      --gold: #b8860b;
-      --gold2: #d4a017;
-      --text: #2c2c2c;
-      --text-light: #6b6b6b;
-      --white: #ffffff;
-      --font-display: 'Cormorant Garamond', serif;
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #16161f;
+      --accent: #7c3aed;
+      --accent2: #a855f7;
+      --lime: #a3e635;
+      --white: #f0f0f5;
+      --text: #a0a0b0;
+      --border: rgba(255,255,255,0.07);
+      --font-display: 'Syne', sans-serif;
       --font-body: 'DM Sans', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--cream);
-      color: var(--text);
+      background: var(--bg);
+      color: var(--white);
       font-family: var(--font-body);
       font-weight: 300;
       line-height: 1.7;
@@ -41,244 +40,234 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(245, 240, 232, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(184,134,11,0.15);
-      transition: all 0.3s;
+      padding: 1.2rem 3rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-logo {
       font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--navy);
-      letter-spacing: 0.05em;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
     }
+
+    .nav-logo span { color: var(--accent2); }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-light);
+      color: var(--text);
       text-decoration: none;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover { color: var(--lime); }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 6rem 4rem 4rem;
-      background: var(--cream);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 4rem;
       position: relative;
       overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
+    .hero-bg {
       position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(184,134,11,0.08) 0%, transparent 70%);
+      inset: 0;
       pointer-events: none;
     }
 
-    .hero-text { animation: fadeUp 0.9s ease both; }
-
-    .hero-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .hero-eyebrow::before {
+    .hero-bg::before {
       content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
+      position: absolute;
+      top: 10%; left: 50%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 65%);
+      transform: translateX(-50%);
     }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: -10%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(163,230,53,0.08) 0%, transparent 65%);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.4);
+      color: var(--accent2);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2rem;
+      width: fit-content;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--lime);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0.2; } }
 
     .hero-name {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      color: var(--navy);
-      margin-bottom: 0.3rem;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
     }
 
-    .hero-name em {
-      font-style: italic;
-      color: var(--gold);
+    .hero-name .line2 {
+      display: block;
+      -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+      color: transparent;
     }
 
-    .hero-title {
+    .hero-name .highlight { color: var(--accent2); }
+
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-desc {
+      max-width: 420px;
+      font-size: 0.92rem;
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .hero-stat-num {
       font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      font-weight: 300;
-      color: var(--text-light);
-      margin-bottom: 2rem;
-      letter-spacing: 0.02em;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
     }
 
-    .hero-description {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      max-width: 480px;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
+    .hero-stat-num span { color: var(--lime); }
+
+    .hero-stat-label {
+      font-size: 0.68rem;
+      color: var(--text);
+      letter-spacing: 0.06em;
+      margin-top: 0.3rem;
     }
 
     .hero-ctas {
       display: flex;
       gap: 1rem;
-      flex-wrap: wrap;
+      margin-top: 2.5rem;
+      animation: fadeUp 0.6s 0.3s ease both;
     }
 
     .btn-primary {
-      display: inline-block;
-      padding: 0.85rem 2rem;
-      background: var(--navy);
-      color: var(--cream);
-      text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      transition: all 0.3s;
-    }
-
-    .btn-primary:hover {
-      background: var(--gold);
-      color: var(--white);
-    }
-
-    .btn-secondary {
-      display: inline-block;
-      padding: 0.85rem 2rem;
-      border: 1px solid var(--navy);
-      color: var(--navy);
-      text-decoration: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      transition: all 0.3s;
-    }
-
-    .btn-secondary:hover {
-      background: var(--navy);
-      color: var(--cream);
-    }
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
+      display: inline-flex;
       align-items: center;
-      animation: fadeUp 0.9s 0.2s ease both;
-    }
-
-    .hero-card {
-      background: var(--navy);
-      color: var(--cream);
-      padding: 3rem;
-      max-width: 360px;
-      position: relative;
-    }
-
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      top: -8px; left: -8px;
-      right: 8px; bottom: 8px;
-      border: 1px solid var(--gold);
-      pointer-events: none;
-    }
-
-    .hero-card-label {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 2rem;
+      border-radius: 4px;
+      transition: all 0.3s;
     }
 
-    .stat-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(245,240,232,0.1);
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--border);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      transition: all 0.3s;
     }
 
-    .stat-row:last-child { border-bottom: none; }
-
-    .stat-number {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--gold2);
-    }
-
-    .stat-label {
-      font-size: 0.72rem;
-      color: rgba(245,240,232,0.6);
-      letter-spacing: 0.05em;
-      align-self: flex-end;
-      padding-bottom: 0.3rem;
-    }
+    .btn-outline:hover { border-color: var(--accent2); color: var(--accent2); }
 
     /* ── SECTIONS ── */
-    section { padding: 6rem 4rem; }
+    section { padding: 6rem 3rem; }
 
-    .section-label {
+    .section-eyebrow {
       font-size: 0.68rem;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
+      color: var(--lime);
+      margin-bottom: 1rem;
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
 
-    .section-label::before {
+    .section-eyebrow::before {
       content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
+      width: 24px; height: 1px;
+      background: var(--lime);
     }
 
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      color: var(--navy);
-      line-height: 1.15;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
       margin-bottom: 3rem;
     }
 
-    .section-title em { font-style: italic; color: var(--gold); }
+    .section-title span { color: var(--accent2); }
 
     /* ── SOBRE ── */
-    .sobre { background: var(--white); }
+    .sobre { background: var(--bg2); }
 
     .sobre-grid {
       display: grid;
@@ -288,339 +277,316 @@
     }
 
     .sobre-text p {
-      font-size: 0.95rem;
-      color: var(--text-light);
+      font-size: 0.92rem;
+      color: var(--text);
       margin-bottom: 1.2rem;
       line-height: 1.9;
     }
 
-    .sobre-text p strong {
-      color: var(--navy);
-      font-weight: 500;
-    }
+    .sobre-text p strong { color: var(--white); font-weight: 500; }
 
-    .idiomas {
-      margin-top: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
+    .idiomas { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
 
-    .idioma-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
+    .idioma-row { display: flex; align-items: center; gap: 1rem; }
 
-    .idioma-name {
-      font-size: 0.8rem;
-      min-width: 90px;
-      color: var(--text);
-    }
+    .idioma-name { font-size: 0.78rem; min-width: 85px; color: var(--white); }
 
     .idioma-bar {
-      flex: 1;
-      height: 3px;
-      background: var(--cream2);
-      position: relative;
+      flex: 1; height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
     }
 
     .idioma-fill {
-      position: absolute;
-      top: 0; left: 0;
       height: 100%;
-      background: var(--gold);
-      transition: width 1s ease;
+      background: linear-gradient(90deg, var(--accent), var(--lime));
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.2s cubic-bezier(0.16,1,0.3,1);
     }
 
-    .idioma-level {
-      font-size: 0.7rem;
-      color: var(--text-light);
-      min-width: 60px;
-      text-align: right;
-    }
+    .idioma-fill.animated { transform: scaleX(1); }
 
-    .sobre-skills { display: flex; flex-direction: column; gap: 2rem; }
+    .idioma-level { font-size: 0.68rem; color: var(--text); min-width: 70px; text-align: right; }
 
-    .skill-category-title {
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
+    .skills-cols { display: flex; flex-direction: column; gap: 2rem; }
+
+    .skill-cat-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--accent2);
       margin-bottom: 0.8rem;
     }
 
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
     .tag {
       font-size: 0.72rem;
-      padding: 0.35rem 0.8rem;
-      border: 1px solid var(--cream2);
+      padding: 0.3rem 0.8rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
       color: var(--text);
-      background: var(--cream);
-      letter-spacing: 0.04em;
+      border-radius: 3px;
       transition: all 0.2s;
     }
 
-    .tag:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
+    .tag:hover { border-color: var(--accent2); color: var(--accent2); }
 
     /* ── EXPERIÊNCIA ── */
-    .experiencia { background: var(--cream); }
+    .experiencia { background: var(--bg); }
 
-    .exp-timeline {
-      position: relative;
-      padding-left: 2rem;
-      border-left: 1px solid var(--cream2);
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-    }
+    .exp-list { display: flex; flex-direction: column; }
 
     .exp-item {
-      position: relative;
-      animation: fadeUp 0.6s ease both;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .exp-item::before {
-      content: '';
-      position: absolute;
-      left: -2.4rem;
-      top: 0.4rem;
-      width: 8px;
-      height: 8px;
-      background: var(--gold);
-      border-radius: 50%;
-    }
+    .exp-item:last-child { border-bottom: none; }
+
+    .exp-left { padding-top: 0.2rem; }
 
     .exp-period {
       font-size: 0.7rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-type {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      color: var(--accent2);
+      border-radius: 2px;
     }
 
     .exp-company {
       font-family: var(--font-display);
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.15rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.2rem;
     }
 
-    .exp-role {
-      font-size: 0.82rem;
-      color: var(--text-light);
-      margin-bottom: 1rem;
-      letter-spacing: 0.03em;
-    }
+    .exp-role { font-size: 0.82rem; color: var(--text); margin-bottom: 0.8rem; }
 
-    .exp-desc {
-      font-size: 0.88rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      max-width: 640px;
-    }
+    .exp-desc { font-size: 0.86rem; color: var(--text); line-height: 1.85; }
 
-    .exp-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.8rem;
-    }
+    .exp-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
 
-    .exp-tag {
+    .chip {
       font-size: 0.65rem;
-      padding: 0.2rem 0.6rem;
-      background: var(--navy);
-      color: var(--cream);
-      letter-spacing: 0.05em;
+      padding: 0.2rem 0.65rem;
+      background: rgba(163,230,53,0.08);
+      border: 1px solid rgba(163,230,53,0.2);
+      color: var(--lime);
+      border-radius: 2px;
+      letter-spacing: 0.04em;
     }
 
     /* ── PROJETOS ── */
-    .projetos { background: var(--navy); }
-    .projetos .section-title { color: var(--cream); }
-    .projetos .section-label { color: var(--gold2); }
-    .projetos .section-label::before { background: var(--gold2); }
+    .projetos { background: var(--bg2); }
 
     .projetos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1px;
-      background: rgba(245,240,232,0.1);
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
 
     .projeto-card {
-      background: var(--navy2);
-      padding: 2.5rem;
-      transition: background 0.3s;
-      cursor: default;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .projeto-card:hover { background: #243a57; }
+    .projeto-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--lime));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+
+    .projeto-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-4px); }
+    .projeto-card:hover::before { transform: scaleX(1); }
 
     .projeto-num {
       font-family: var(--font-display);
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: rgba(184,134,11,0.2);
+      font-size: 4rem;
+      font-weight: 800;
+      color: var(--accent2);
+      opacity: 0.25;
       line-height: 1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      transition: opacity 0.3s;
     }
+
+    .projeto-card:hover .projeto-num { opacity: 0.6; }
 
     .projeto-title {
       font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--cream);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
       margin-bottom: 0.6rem;
       line-height: 1.3;
     }
 
     .projeto-desc {
       font-size: 0.82rem;
-      color: rgba(245,240,232,0.55);
+      color: var(--text);
       line-height: 1.8;
       margin-bottom: 1.5rem;
     }
 
-    .projeto-results {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
+    .projeto-results { display: flex; flex-direction: column; gap: 0.4rem; }
 
     .result-item {
-      font-size: 0.72rem;
-      color: var(--gold2);
+      font-size: 0.75rem;
+      color: var(--lime);
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .result-item::before {
-      content: '↗';
-      font-size: 0.8rem;
-    }
+    .result-item::before { content: '↑'; font-weight: 700; }
 
     /* ── FORMAÇÃO ── */
-    .formacao { background: var(--white); }
+    .formacao { background: var(--bg); }
 
     .formacao-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--cream2);
-      border: 1px solid var(--cream2);
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
 
-    .formacao-item {
-      background: var(--white);
-      padding: 2rem 2.5rem;
-      transition: background 0.2s;
+    .formacao-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      padding: 1.8rem;
+      border-radius: 8px;
+      transition: all 0.25s;
     }
 
-    .formacao-item:hover { background: var(--cream); }
+    .formacao-card:hover {
+      border-color: rgba(168,85,247,0.4);
+      transform: translateY(-2px);
+    }
 
-    .formacao-status {
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
+    .formacao-badge {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+      display: inline-block;
     }
+
+    .badge-done { background: rgba(163,230,53,0.1); color: var(--lime); border: 1px solid rgba(163,230,53,0.3); }
+    .badge-progress { background: rgba(124,58,237,0.1); color: var(--accent2); border: 1px solid rgba(124,58,237,0.3); }
+    .badge-current { background: rgba(255,200,0,0.1); color: #fbbf24; border: 1px solid rgba(255,200,0,0.3); }
 
     .formacao-title {
       font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--navy);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
       margin-bottom: 0.3rem;
+      line-height: 1.3;
     }
 
-    .formacao-inst {
-      font-size: 0.8rem;
-      color: var(--text-light);
-    }
+    .formacao-inst { font-size: 0.78rem; color: var(--text); }
 
     /* ── CONTATO ── */
     .contato {
-      background: var(--cream2);
+      background: var(--bg2);
       text-align: center;
-      padding: 6rem 4rem;
     }
 
-    .contato .section-label { justify-content: center; }
-    .contato .section-label::before { display: none; }
+    .contato .section-eyebrow { justify-content: center; }
+    .contato .section-eyebrow::before { display: none; }
 
     .contato-title {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      font-weight: 300;
-      color: var(--navy);
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
       margin-bottom: 1rem;
     }
 
-    .contato-title em { font-style: italic; color: var(--gold); }
+    .contato-title span { color: var(--accent2); }
 
     .contato-sub {
       font-size: 0.9rem;
-      color: var(--text-light);
+      color: var(--text);
       margin-bottom: 3rem;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 460px;
+      margin-left: auto; margin-right: auto;
     }
 
     .contato-links {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
     }
 
     .contato-link {
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      font-size: 0.82rem;
-      color: var(--navy);
+      font-size: 0.8rem;
+      color: var(--white);
       text-decoration: none;
-      padding: 0.7rem 1.5rem;
-      border: 1px solid rgba(15,27,45,0.2);
+      padding: 0.8rem 1.5rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
       transition: all 0.2s;
       letter-spacing: 0.04em;
     }
 
-    .contato-link:hover {
-      background: var(--navy);
-      color: var(--cream);
-      border-color: var(--navy);
-    }
+    .contato-link:hover { border-color: var(--accent2); color: var(--accent2); background: rgba(124,58,237,0.1); }
+
+    .contato-info { font-size: 0.76rem; color: var(--text); }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--navy);
-      color: rgba(245,240,232,0.4);
+      background: var(--bg);
+      border-top: 1px solid var(--border);
       text-align: center;
       padding: 1.5rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      color: var(--text);
+      letter-spacing: 0.06em;
     }
 
-    footer span { color: var(--gold); }
+    footer span { color: var(--accent2); }
 
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
@@ -630,22 +596,18 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       section { padding: 4rem 1.5rem; }
-      .hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; gap: 3rem; }
-      .hero-visual { order: -1; }
-      .hero-card { max-width: 100%; }
+      .hero { padding: 7rem 1.5rem 3rem; }
       .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .formacao-grid { grid-template-columns: 1fr; }
-      .contato { padding: 4rem 1.5rem; }
+      .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-stat-num { font-size: 2rem; }
     }
   </style>
 </head>
@@ -653,7 +615,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">Luciana Neves</div>
+    <div class="nav-logo">Luciana <span>Neves</span></div>
     <ul class="nav-links">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#experiencia">Experiência</a></li>
@@ -665,114 +627,95 @@
 
   <!-- HERO -->
   <section class="hero" id="inicio">
-    <div class="hero-text">
-      <div class="hero-eyebrow">Gestora de Projetos Júnior</div>
-      <h1 class="hero-name">Luciana<br><em>Tais Neves</em></h1>
-      <p class="hero-title">Project Manager · ITIL 4 · PMP (em andamento)</p>
-      <p class="hero-description">
-        Mais de 10 anos transformando desafios em resultados mensuráveis. 
-        Especialista em metodologias ágeis, transformação digital e aplicação 
-        de Inteligência Artificial em gestão de projetos.
-      </p>
-      <div class="hero-ctas">
-        <a href="#projetos" class="btn-primary">Ver Projetos</a>
-        <a href="#contato" class="btn-secondary">Entrar em Contato</a>
-      </div>
-    </div>
+    <div class="hero-bg"></div>
 
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hero-card-label">Números que falam</div>
-        <div class="stat-row">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Anos de experiência</div>
+    <div class="hero-tag">Disponível para oportunidades</div>
+
+    <h1 class="hero-name">
+      Luciana<br>
+      <span class="line2">Tais <span class="highlight">Neves</span></span>
+    </h1>
+
+    <div class="hero-bottom">
+      <div>
+        <p class="hero-desc">
+          Gestora de Projetos com mais de 10 anos de experiência em transformação digital,
+          metodologias ágeis e aplicação de IA para resultados mensuráveis.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projetos" class="btn-primary">Ver Projetos →</a>
+          <a href="#contato" class="btn-outline">Entrar em Contato</a>
         </div>
-        <div class="stat-row">
-          <div class="stat-number">85%</div>
-          <div class="stat-label">Redução no tempo de busca documental</div>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">10<span>+</span></div>
+          <div class="hero-stat-label">Anos de Experiência</div>
         </div>
-        <div class="stat-row">
-          <div class="stat-number">40%</div>
-          <div class="stat-label">Aumento na precisão de contratações</div>
+        <div>
+          <div class="hero-stat-num">85<span>%</span></div>
+          <div class="hero-stat-label">Redução em Busca Documental</div>
         </div>
-        <div class="stat-row">
-          <div class="stat-number">3</div>
-          <div class="stat-label">Idiomas (PT · ES · EN)</div>
+        <div>
+          <div class="hero-stat-num">40<span>%</span></div>
+          <div class="hero-stat-label">Aumento em Precisão de Contratações</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- SOBRE -->
-  <section class="sobre" id="sobre">
-    <div class="section-label">Sobre mim</div>
-    <h2 class="section-title">Inovação com <em>propósito</em></h2>
+  <section class="sobre reveal" id="sobre">
+    <div class="section-eyebrow">Sobre mim</div>
+    <h2 class="section-title">Inovação com <span>propósito</span></h2>
     <div class="sobre-grid">
-      <div class="sobre-text reveal">
-        <p>
-          Profissional dinâmica e orientada a resultados, com mais de <strong>10 anos de experiência</strong> 
-          consolidada em gestão de projetos, logística, finanças e administração.
-        </p>
-        <p>
-          Pós-graduada em Gestão de Projetos pela <strong>Universidade Europeia (Portugal)</strong>, 
-          com atuação reconhecida como Gestora do Projeto "Prémio do Ano de PMO" no PMI Santa Catarina.
-        </p>
-        <p>
-          Acredito que a excelência não é um destino, mas um processo contínuo de aprendizado, 
-          adaptação e inovação — aplicando metodologias ágeis e <strong>Inteligência Artificial</strong> 
-          para transformar desafios em valor real.
-        </p>
-
-        <div class="idiomas" style="margin-top:2rem;">
-          <div class="skill-category-title">Idiomas</div>
+      <div class="sobre-text">
+        <p>Profissional dinâmica e orientada a resultados, com mais de <strong>10 anos de experiência</strong> em gestão de projetos, logística, finanças e administração.</p>
+        <p>Pós-graduada em Gestão de Projetos pela <strong>Universidade Europeia (Portugal)</strong>, reconhecida como Gestora do Projeto "Prémio do Ano de PMO" no PMI Santa Catarina.</p>
+        <p>Especialista em aplicar <strong>Inteligência Artificial</strong> em projetos para transformar desafios em valor organizacional real e mensurável.</p>
+        <div class="idiomas">
+          <div class="section-eyebrow" style="margin-bottom:0.5rem; margin-top:0.5rem;">Idiomas</div>
           <div class="idioma-row">
             <span class="idioma-name">Português</span>
-            <div class="idioma-bar"><div class="idioma-fill" style="width:100%"></div></div>
+            <div class="idioma-bar"><div class="idioma-fill" data-width="100%"></div></div>
             <span class="idioma-level">Nativo</span>
           </div>
           <div class="idioma-row">
             <span class="idioma-name">Espanhol</span>
-            <div class="idioma-bar"><div class="idioma-fill" style="width:85%"></div></div>
+            <div class="idioma-bar"><div class="idioma-fill" data-width="85%"></div></div>
             <span class="idioma-level">C1 Avançado</span>
           </div>
           <div class="idioma-row">
             <span class="idioma-name">Inglês</span>
-            <div class="idioma-bar"><div class="idioma-fill" style="width:55%"></div></div>
+            <div class="idioma-bar"><div class="idioma-fill" data-width="55%"></div></div>
             <span class="idioma-level">B1 Intermediário</span>
           </div>
         </div>
       </div>
 
-      <div class="sobre-skills reveal">
+      <div class="skills-cols">
         <div>
-          <div class="skill-category-title">Metodologias</div>
-          <div class="skill-tags">
-            <span class="tag">Scrum</span>
-            <span class="tag">Kanban</span>
-            <span class="tag">PMBOK</span>
-            <span class="tag">ITIL 4</span>
-            <span class="tag">Gestão de Riscos</span>
-            <span class="tag">Planeamento Estratégico</span>
+          <div class="skill-cat-title">Metodologias</div>
+          <div class="tags">
+            <span class="tag">Scrum</span><span class="tag">Kanban</span>
+            <span class="tag">PMBOK</span><span class="tag">ITIL 4</span>
+            <span class="tag">Gestão de Riscos</span><span class="tag">Planeamento Estratégico</span>
           </div>
         </div>
         <div>
-          <div class="skill-category-title">Ferramentas</div>
-          <div class="skill-tags">
-            <span class="tag">MS Project</span>
-            <span class="tag">Jira</span>
-            <span class="tag">Trello</span>
-            <span class="tag">Asana</span>
-            <span class="tag">Excel Avançado</span>
-            <span class="tag">Power BI</span>
+          <div class="skill-cat-title">Ferramentas</div>
+          <div class="tags">
+            <span class="tag">MS Project</span><span class="tag">Jira</span>
+            <span class="tag">Trello</span><span class="tag">Asana</span>
+            <span class="tag">Excel Avançado</span><span class="tag">Power BI</span>
           </div>
         </div>
         <div>
-          <div class="skill-category-title">Especialidades</div>
-          <div class="skill-tags">
-            <span class="tag">IA aplicada a projetos</span>
-            <span class="tag">Transformação Digital</span>
-            <span class="tag">Gestão de Mudança</span>
-            <span class="tag">Análise de Dados</span>
+          <div class="skill-cat-title">Especialidades</div>
+          <div class="tags">
+            <span class="tag">IA em Projetos</span><span class="tag">Transformação Digital</span>
+            <span class="tag">Gestão de Mudança</span><span class="tag">Análise de Dados</span>
             <span class="tag">Otimização de Processos</span>
           </div>
         </div>
@@ -782,85 +725,67 @@
 
   <!-- EXPERIÊNCIA -->
   <section class="experiencia" id="experiencia">
-    <div class="section-label">Trajetória</div>
-    <h2 class="section-title">Experiência <em>profissional</em></h2>
-    <div class="exp-timeline">
+    <div class="section-eyebrow">Trajetória</div>
+    <h2 class="section-title">Experiência <span>profissional</span></h2>
+    <div class="exp-list">
 
       <div class="exp-item reveal">
-        <div class="exp-period">Jul. 2024 – Atual</div>
-        <div class="exp-company">Bússola Logística</div>
-        <div class="exp-role">Consultora (PJ) | Project Manager</div>
-        <div class="exp-desc">
-          Liderou projeto de otimização de custos de manutenção de frota, conduzindo todas as fases 
-          do PMBOK: da análise de custo-benefício e Project Charter até o encerramento com documentação 
-          de SOPs. Reduziu significativamente custos sem impacto na confiabilidade operacional.
+        <div class="exp-left">
+          <div class="exp-period">Jul. 2024 – Atual</div>
+          <div class="exp-type">Consultora PJ</div>
         </div>
-        <div class="exp-tags">
-          <span class="exp-tag">PMBOK</span>
-          <span class="exp-tag">Gestão de Custos</span>
-          <span class="exp-tag">KPIs</span>
-          <span class="exp-tag">Logística</span>
+        <div>
+          <div class="exp-company">Bússola Logística</div>
+          <div class="exp-role">Project Manager</div>
+          <div class="exp-desc">Liderou projeto de otimização de custos de manutenção de frota com aplicação completa do PMBOK — da análise de custo-benefício e Project Charter até a documentação de SOPs. Reduziu custos significativamente sem impacto na confiabilidade operacional.</div>
+          <div class="exp-chips">
+            <span class="chip">PMBOK</span><span class="chip">Gestão de Custos</span><span class="chip">KPIs</span><span class="chip">Logística</span>
+          </div>
         </div>
       </div>
 
       <div class="exp-item reveal">
-        <div class="exp-period">Out. 2024 – Atual</div>
-        <div class="exp-company">Projeto Sebastianas</div>
-        <div class="exp-role">Gerente de Projetos</div>
-        <div class="exp-desc">
-          Aplicação de metodologias ágeis (Scrum e Kanban) para gestão de projetos com entregas 
-          dentro do prazo e orçamento. Condução de capacitações em ferramentas como MS Project, 
-          Trello, Jira e Asana.
+        <div class="exp-left">
+          <div class="exp-period">Out. 2024 – Atual</div>
+          <div class="exp-type">Gerente</div>
         </div>
-        <div class="exp-tags">
-          <span class="exp-tag">Scrum</span>
-          <span class="exp-tag">Kanban</span>
-          <span class="exp-tag">Gestão de Riscos</span>
-        </div>
-      </div>
-
-      <div class="exp-item reveal">
-        <div class="exp-period">Mar. 2024 – Nov. 2024 · Voluntária</div>
-        <div class="exp-company">PMI Santa Catarina</div>
-        <div class="exp-role">Gestora de Projetos</div>
-        <div class="exp-desc">
-          Gestão completa do projeto "Prémio do Ano de PMO" — uma das principais premiações de 
-          gestão de projetos no Brasil. Identificou 15+ tendências inovadoras no mercado com 
-          apoio de IA para curadoria das inscrições.
-        </div>
-        <div class="exp-tags">
-          <span class="exp-tag">Curadoria Estratégica</span>
-          <span class="exp-tag">IA</span>
-          <span class="exp-tag">Eventos</span>
-          <span class="exp-tag">PMI</span>
+        <div>
+          <div class="exp-company">Projeto Sebastianas</div>
+          <div class="exp-role">Gerente de Projetos</div>
+          <div class="exp-desc">Aplicação de Scrum e Kanban para gestão eficiente de projetos com entregas dentro do prazo e orçamento. Capacitação de equipes em MS Project, Trello, Jira e Asana.</div>
+          <div class="exp-chips">
+            <span class="chip">Scrum</span><span class="chip">Kanban</span><span class="chip">Gestão de Riscos</span>
+          </div>
         </div>
       </div>
 
       <div class="exp-item reveal">
-        <div class="exp-period">Maio 2022 – Dez. 2022</div>
-        <div class="exp-company">Frota Martins Ltda</div>
-        <div class="exp-role">Assistente Administrativa</div>
-        <div class="exp-desc">
-          Gestão rigorosa de contas a pagar e receber, análise financeira e suporte administrativo 
-          com foco na saúde financeira da empresa.
+        <div class="exp-left">
+          <div class="exp-period">Mar. 2024 – Nov. 2024</div>
+          <div class="exp-type">Voluntária</div>
         </div>
-        <div class="exp-tags">
-          <span class="exp-tag">Financeiro</span>
-          <span class="exp-tag">Administrativo</span>
+        <div>
+          <div class="exp-company">PMI Santa Catarina</div>
+          <div class="exp-role">Gestora de Projetos</div>
+          <div class="exp-desc">Gestão completa do "Prémio do Ano de PMO" — principal premiação de gestão de projetos do PMI SC. Utilizou IA para curadoria de centenas de inscrições, identificando 15+ tendências inovadoras no mercado.</div>
+          <div class="exp-chips">
+            <span class="chip">Curadoria Estratégica</span><span class="chip">IA</span><span class="chip">PMI</span>
+          </div>
         </div>
       </div>
 
       <div class="exp-item reveal">
-        <div class="exp-period">Mar. 2021 – Dez. 2021</div>
-        <div class="exp-company">Detran PR</div>
-        <div class="exp-role">Estagiária de Direito</div>
-        <div class="exp-desc">
-          Coordenação de protocolos, análise documental e supervisão de controlo de multas, 
-          garantindo conformidade legal nos processos administrativos.
+        <div class="exp-left">
+          <div class="exp-period">Maio – Dez. 2022</div>
+          <div class="exp-type">CLT</div>
         </div>
-        <div class="exp-tags">
-          <span class="exp-tag">Conformidade Legal</span>
-          <span class="exp-tag">Análise Documental</span>
+        <div>
+          <div class="exp-company">Frota Martins Ltda</div>
+          <div class="exp-role">Assistente Administrativa</div>
+          <div class="exp-desc">Gestão de contas a pagar e receber, análise financeira e suporte administrativo para a saúde financeira da empresa.</div>
+          <div class="exp-chips">
+            <span class="chip">Financeiro</span><span class="chip">Administrativo</span>
+          </div>
         </div>
       </div>
 
@@ -869,14 +794,14 @@
 
   <!-- PROJETOS -->
   <section class="projetos" id="projetos">
-    <div class="section-label">Cases</div>
-    <h2 class="section-title">Projetos de <em>impacto</em></h2>
+    <div class="section-eyebrow">Cases</div>
+    <h2 class="section-title">Projetos de <span>impacto</span></h2>
     <div class="projetos-grid">
 
       <div class="projeto-card reveal">
         <div class="projeto-num">01</div>
         <div class="projeto-title">Digitalização do Acervo Documental</div>
-        <div class="projeto-desc">Transformação digital de gestão documental física com IA, eliminando perdas e modernizando cultura organizacional.</div>
+        <div class="projeto-desc">Transformação digital com IA para gestão documental — eliminando perdas e modernizando processos organizacionais.</div>
         <div class="projeto-results">
           <div class="result-item">85% de redução no tempo de busca</div>
           <div class="result-item">Perdas de documentos eliminadas</div>
@@ -902,14 +827,14 @@
         <div class="projeto-results">
           <div class="result-item">15+ tendências inovadoras mapeadas</div>
           <div class="result-item">Reconhecimento no PMI SC</div>
-          <div class="result-item">Nível técnico da curadoria elevado</div>
+          <div class="result-item">Nível técnico elevado</div>
         </div>
       </div>
 
       <div class="projeto-card reveal">
         <div class="projeto-num">04</div>
         <div class="projeto-title">Otimização de Frota — Bússola Logística</div>
-        <div class="projeto-desc">Projeto completo seguindo PMBOK para redução de custos de manutenção sem impacto na confiabilidade.</div>
+        <div class="projeto-desc">Projeto completo via PMBOK para redução de custos de manutenção sem impacto na confiabilidade operacional.</div>
         <div class="projeto-results">
           <div class="result-item">Redução significativa de custos</div>
           <div class="result-item">SOPs documentados</div>
@@ -931,7 +856,7 @@
       <div class="projeto-card reveal">
         <div class="projeto-num">06</div>
         <div class="projeto-title">Conquista Patrimonial — Casa Própria</div>
-        <div class="projeto-desc">Aplicação de metodologia PMBOK à gestão pessoal, com planejamento financeiro rigoroso e disciplina.</div>
+        <div class="projeto-desc">Aplicação de PMBOK à gestão pessoal com planejamento financeiro rigoroso e disciplina comprovada.</div>
         <div class="projeto-results">
           <div class="result-item">Meta atingida no prazo planejado</div>
           <div class="result-item">Independência patrimonial</div>
@@ -944,36 +869,36 @@
 
   <!-- FORMAÇÃO -->
   <section class="formacao" id="formacao">
-    <div class="section-label">Educação</div>
-    <h2 class="section-title">Formação & <em>certificações</em></h2>
+    <div class="section-eyebrow">Educação</div>
+    <h2 class="section-title">Formação & <span>certificações</span></h2>
     <div class="formacao-grid">
 
-      <div class="formacao-item reveal">
-        <div class="formacao-status">✦ 2024 – 2025</div>
+      <div class="formacao-card reveal">
+        <span class="formacao-badge badge-current">2024 – 2025</span>
         <div class="formacao-title">Pós-graduação em Gestão de Projetos</div>
         <div class="formacao-inst">Universidade Europeia, Portugal</div>
       </div>
 
-      <div class="formacao-item reveal">
-        <div class="formacao-status">✅ Certificada</div>
+      <div class="formacao-card reveal">
+        <span class="formacao-badge badge-done">✓ Certificada</span>
         <div class="formacao-title">ITIL® 4 Foundation</div>
         <div class="formacao-inst">Gestão de Serviços de TI</div>
       </div>
 
-      <div class="formacao-item reveal">
-        <div class="formacao-status">🔄 Em Andamento</div>
+      <div class="formacao-card reveal">
+        <span class="formacao-badge badge-progress">Em Andamento</span>
         <div class="formacao-title">Certificação PMP</div>
         <div class="formacao-inst">Project Management Professional</div>
       </div>
 
-      <div class="formacao-item reveal">
-        <div class="formacao-status">✅ Concluída — 2021</div>
+      <div class="formacao-card reveal">
+        <span class="formacao-badge badge-done">✓ Concluída 2021</span>
         <div class="formacao-title">Licenciatura em Direito</div>
         <div class="formacao-inst">UNICESUMAR / UNIP</div>
       </div>
 
-      <div class="formacao-item reveal">
-        <div class="formacao-status">✅ Concluída</div>
+      <div class="formacao-card reveal">
+        <span class="formacao-badge badge-done">✓ Concluída</span>
         <div class="formacao-title">Licenciatura em Relações Internacionais</div>
         <div class="formacao-inst">Universidade Cidade Verde</div>
       </div>
@@ -983,48 +908,45 @@
 
   <!-- CONTATO -->
   <section class="contato" id="contato">
-    <div class="section-label">Contato</div>
-    <h2 class="contato-title">Vamos <em>conversar?</em></h2>
-    <p class="contato-sub">Aberta a novas oportunidades em gestão de projetos, transformação digital e consultoria.</p>
+    <div class="section-eyebrow">Contato</div>
+    <h2 class="contato-title">Vamos <span>conversar?</span></h2>
+    <p class="contato-sub">Aberta a oportunidades em gestão de projetos, transformação digital e consultoria.</p>
     <div class="contato-links">
-      <a href="mailto:lucianasantori@icloud.com" class="contato-link">
-        ✉ lucianasantori@icloud.com
-      </a>
-      <a href="https://www.linkedin.com/in/luciana-tais-neves-561532249" target="_blank" class="contato-link">
-        ↗ LinkedIn
-      </a>
-      <a href="https://github.com/lucianasantori842-art" target="_blank" class="contato-link">
-        ↗ GitHub
-      </a>
+      <a href="mailto:lucianasantori@icloud.com" class="contato-link">✉ lucianasantori@icloud.com</a>
+      <a href="https://www.linkedin.com/in/luciana-tais-neves-561532249" target="_blank" class="contato-link">↗ LinkedIn</a>
+      <a href="https://github.com/lucianasantori842-art" target="_blank" class="contato-link">↗ GitHub</a>
     </div>
-    <div style="font-size:0.78rem; color:var(--text-light);">
-      📍 Belém, PA, Brasil &nbsp;·&nbsp; (+351) 91245-1505 &nbsp;·&nbsp; (91) 98645-1611
-    </div>
+    <div class="contato-info">📍 Belém, PA, Brasil &nbsp;·&nbsp; (+351) 91245-1505 &nbsp;·&nbsp; (91) 98645-1611</div>
   </section>
 
-  <footer>
-    © 2026 <span>Luciana Tais Neves</span> — Gestora de Projetos Júnior
-  </footer>
+  <footer>© 2026 <span>Luciana Tais Neves</span> — Gestora de Projetos Júnior</footer>
 
   <script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    const io = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
           setTimeout(() => e.target.classList.add('visible'), i * 80);
-          observer.unobserve(e.target);
+          io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
 
-    // Nav scroll effect
-    window.addEventListener('scroll', () => {
-      document.querySelector('nav').style.boxShadow =
-        window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.08)' : 'none';
-    });
+    // Animate language bars when visible
+    const barObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.idioma-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width;
+            bar.classList.add('animated');
+          });
+          barObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.idiomas').forEach(el => barObserver.observe(el));
   </script>
-
 </body>
 </html>
